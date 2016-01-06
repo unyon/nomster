@@ -26,5 +26,9 @@ module Nomster
     # Precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf )
 
+    #initialize_on_precompile configuration to false
+    config.assets.initialize_on_precompile = false
+
+
   end
 end
