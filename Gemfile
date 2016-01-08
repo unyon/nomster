@@ -34,6 +34,11 @@ gem 'devise', '>= 3.2.4'
 #add simple form
 gem 'simple_form'
 
+#add geocoder
+gem 'geocoder'
+
+#add figaro
+gem 'figaro'
 #add pagination
 gem 'will_paginate'
 

@@ -4,8 +4,8 @@ class PlacesController < ApplicationController
 
 
 def index
-	@places = Place.all.paginate(:page => params[:page], :per_page => 10).order('created_at ASC')
-end
+      @places = Place.all.order("created_at ASC").page(params[:page]).per(10)
+  end
 
 
 def new
