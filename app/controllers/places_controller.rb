@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
 	before_action :authenticate_user!, :only => [:new, :create]
 
 def index
-	@places = Place.all.paginate(:page => params[:page], :per_page => 10)
+	@places = Place.all.paginate(:page => params[:page], :per_page => 10).order('created_at ASC')
 end
 
 
@@ -25,9 +25,16 @@ end
 
 def update
 	@place = Place.find(params[:id])
-	@places.update_attributes(place_params)
+	@place.update_attributes(place_params)
 	redirect_to root_path
-	end
+end
+
+def destroy
+	@place = Place.find(params[:id])
+	@place.destroy
+	redirect_to root_path
+end
+
 
 private
 
