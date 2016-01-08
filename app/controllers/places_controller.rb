@@ -34,13 +34,18 @@ def update
 	if @place.user != current_user 
 		return render :text => 'Not allowed', :status => :forbidden
 	end
-	
+
 	@place = Place.find(params[:id])
 	@place.update_attributes(place_params)
 	redirect_to root_path
 end
 
 def destroy
+	
+	if @place.user != current_user 
+		return render :text => 'Not allowed', :status => :forbidden
+	end
+	
 	@place = Place.find(params[:id])
 	@place.destroy
 	redirect_to root_path
