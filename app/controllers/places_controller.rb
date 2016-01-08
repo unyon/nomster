@@ -9,12 +9,16 @@ end
 
 
 def new
-	@places = Place.news
+	@place = Place.new
 end
 
 def create
-	current_user.places.create(place_params)
+	@place = current_user.places.create(place_params)
+	if @place.valid?
 	redirect_to root_path
+else
+	render :new, :status => :unprocessable_entry
+end
 end
 
 def show
@@ -30,23 +34,26 @@ def edit
 end
 
 def update
-
+	@place = Place.find(params[:id])
 	if @place.user != current_user 
 		return render :text => 'Not allowed', :status => :forbidden
 	end
 
-	@place = Place.find(params[:id])
 	@place.update_attributes(place_params)
+	if @place.valid?
 	redirect_to root_path
+	else
+	render :new, :status => :unprocessable_entry
+	end
 end
 
 def destroy
-	
+	@place = Place.find(params[:id])
+
 	if @place.user != current_user 
 		return render :text => 'Not allowed', :status => :forbidden
 	end
-	
-	@place = Place.find(params[:id])
+
 	@place.destroy
 	redirect_to root_path
 end
