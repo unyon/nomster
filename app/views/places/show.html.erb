@@ -4,6 +4,9 @@
 <br /> <br />
 <p><%= @place.description %></p>
 
+
+  <!--google map API code-->
+    
     </style>
 <% if @place.latitude.present? && @place.longitude.present? %>
 
@@ -32,6 +35,8 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap">
      <div id="map"></div>
 <% end %>
 <br />
+ <!--end google map API code-->
+
 <div class="pull-right">
 <% if current_user && current_user == @place.user %>
 <%= link_to 'Edit', edit_place_path(@place), :class => 'btn btn-primary' %>
@@ -43,7 +48,7 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap">
 <div class="clear"></div>
 <%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
 <%= f.input :message %>
-<%= f.input :rating %>
+<%= f.input :rating, as: :select, collection: Comment::RATINGS %>
 <%= f.submit "Add a Comment", :class => 'btn btn-primary' %>
 <% end %>
 
@@ -51,7 +56,9 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap">
 <% @place.comments.each do |comment| %>
   <div>
   <blockquote>
-  <b><%= comment.rating %></b> - 
+  <% if comment.humanized_rating.present? %>
+  <b><%= comment.humanized_rating %></b> - 
+  <% end %>
   <%= comment.message %>
   <small><%= comment.user.email %></small>
   </blockquote>
