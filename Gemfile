@@ -34,6 +34,9 @@ gem 'devise', '>= 3.2.4'
 #add simple form
 gem 'simple_form'
 
+#add CarrierWave for photos
+gem 'carrierwave'
+
 #add geocoder
 gem 'geocoder'
 
