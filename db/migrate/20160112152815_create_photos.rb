@@ -4,9 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
     	t.text :caption
     	t.integer :place_id
 
-      t.timestamps
+        t.timestamps
     end
-
-    add_index :photos, :place_id
-  end
+ end
 end
