@@ -95,3 +95,14 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
+.photo_places {
+    margin-right: 115px;
+    float: left;
+    width: 180px;
+    font-style: italic;
+    }
+
+.photo_places:hover {
+    border: 1px solid #777;
+}

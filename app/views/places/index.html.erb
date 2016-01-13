@@ -9,21 +9,27 @@
     <% end %>
   </div>
 
-<% if place.comments.present? %>
- <div class="col-xs-12">
-  <blockquote>
-  <% if place.comments.last.humanized_rating.present? %>
-  <b><%= place.comments.last.humanized_rating %></b> - 
-  <% end %>
-  <%= place.comments.last.message %>
-  <small><%= place.comments.last.user.email %></small>
-  </blockquote>
-  </div>
-  <% end %>
-  <% end %>
+    <% if place.photos.present? %>
+    <div class="col-xs-12 text-center">
+      <%= image_tag place.photos.last.picture, :alt => place.photos.last.caption %>
+    </div>
+    <% end %>
+
+    <% if place.comments.present? %>
+    <div class="col-xs-12">
+    <blockquote>
+    <% if place.comments.last.humanized_rating.present? %>
+    <b><%= place.comments.last.humanized_rating %></b> - 
+    <% end %>
+    <%= place.comments.last.message %>
+    <small><%= place.comments.last.user.email %></small>
+    </blockquote>
+    </div>
+    <% end %>
+    <% end %>
   
 
 
-<div class="pag">
-<%= will_paginate @places %>
-</div>
+    <div class="pag">
+     <%= will_paginate @places %>
+    </div>
