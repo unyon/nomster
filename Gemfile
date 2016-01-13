@@ -42,6 +42,10 @@ gem 'geocoder'
 
 #add figaro
 gem 'figaro'
+
+#add fog
+gem "fog", "~> 1.3.1"
+
 #add pagination
 gem 'will_paginate'
 
