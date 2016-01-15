@@ -60,13 +60,13 @@
     <% if place.user.present? %>
     <small><% place.user.email %></small>
     <% end %>
-  </div>
 
     <% if place.photos.present? %>
-    <div class="col-xs-12 text-center">
+    <div class="col-xs-12 pull-right">
       <%= image_tag place.photos.last.picture, :alt => place.photos.last.caption %>
     </div>
     <% end %>
+    </div>
 
     <% if place.comments.present? %>
     <div class="col-xs-12">
