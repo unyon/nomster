@@ -1,45 +1,42 @@
-<div class="booyah-box col-xs-10 col-xs-offset-1">
+<div class="booyah-box col-xs-10 col-xs-offset-1 pull-left">
     <div>
     <h1><%= @place.name %></h1>
     <i><%= @place.address %></i>
     <br /> <br />
     <p><%= @place.description %></p>
-  <div class="pull-right">
+<div class="pull-right">
   <% if current_user && current_user == @place.user %>
   <%= link_to 'Edit', edit_place_path(@place), :class => 'btn btn-primary' %>
   <%= link_to 'Destroy', place_path(@place), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this?'}, :class => 'btn btn-danger' %>
   <% end %>
   </div>
+  <br />
 </div>
-<div class="clear"></div>
 <br />
-
-<div class="photo_places col-xs-12 col-sm-6">
+<br />
+<div class="photo_places2 col-xs-12 col-sm-6 wrapper">
       <div class="photo_places">
         <% if @place.photos.present? %>
         <div class="col-xs-12 text-center">
         <% @place.photos.each do |photo| %>
-          <%= image_tag photo.picture, :alt => photo.caption %>
+          <%= image_tag photo.picture, :class => 'img-responsive' %>
           <br/>
           <%= photo.caption %>
            <% end %>
          </div>
          </div>
         <% end %>
-
+        <br />
 </div>
+</div>
+<div class="clear"></div>
+
+
 
 <div class="clear"></div>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
 <!--google map API code-->
-    
+<div class="booyah-box col-xs-10 col-xs-offset-1 pull-left">    
     </style>
 <% if @place.latitude.present? && @place.longitude.present? %>
 
@@ -70,7 +67,7 @@ src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap">
 <br />
  <!--end google map API code-->
  </div>
-</div>
+ </div>
 
 <div class="col-xs-10 col-xs-offset-1">
   <h1 class="pull-left">Comments</h1>
