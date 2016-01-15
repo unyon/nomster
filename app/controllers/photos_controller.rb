@@ -2,12 +2,20 @@ class PhotosController < ApplicationController
 
 	before_action :authenticate_user!
 
-	def create
+def create
 		@place = Place.find(params[:place_id])
 		@place.photos.create(photo_params)
 		
 		redirect_to place_path(@place)
-	end
+end
+
+  def show
+    @photo = Photo.find(params[:id])
+  end
+  
+  def edit
+    @photo = Photo.find(params[:id])
+  end
 
 	private
 	

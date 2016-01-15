@@ -100,8 +100,9 @@ blockquote p {
 .photo_places {
     margin-right: 115px;
     float: left;
-    width: 180px;
+    max-width: 150px;
     font-style: italic;
+    max-height: 150px;
     }
 
 .photo_places:hover {
