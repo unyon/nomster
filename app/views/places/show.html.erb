@@ -52,29 +52,27 @@
  </div>
 
  <div class="booyah-box col-xs-10 col-xs-offset-1">   
-<div class="photo_places2 col-xs-12 col-sm-6">
-      <div class="photo_places">
-      <center><h1>Photos of <%= @place.name %></h1></center>
+      <div class="photo_places2 col-xs-12 col-sm-6 text-center">
+        <h1>Photos of <%= @place.name %></h1>
+      </div>
         <% if @place.photos.present? %>
         <div class="col-xs-12 text-center">
-        <% @place.photos.each do |photo| %>
+          <% @place.photos.each do |photo| %>
           <%= image_tag photo.picture, class: 'img-responsive' %>
           <%= photo.caption %>
           <br />
           <br />
-           <% end %>
-         </div>
+          <% end %>
          </div>
         <% end %>
         <br />
 
 
-</div>
-  <!-- Button trigger modal -->
-  <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myPhotoModal">
-    Upload photo
-  </button>
-  <div class="clear"></div>
+      <!-- Button trigger modal -->
+    <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myPhotoModal">
+        Upload photo
+      </button>
+      <div class="clear"></div>
 
 </div> 
 
