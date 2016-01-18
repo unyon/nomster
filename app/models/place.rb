@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
 	belongs_to :user
-	has_many :comments, dependent: :destroy
+	has_many :comments, dependent: :destroy, foreign_key: :trackable_id
 	has_many :photos
 	
 	geocoded_by :address
