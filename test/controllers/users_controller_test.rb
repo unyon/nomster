@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "create" do
+  test "user show page" do
     user = FactoryGirl.create(:user)
     sign_in user
 
