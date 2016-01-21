@@ -60,10 +60,7 @@
         <% if @place.photos.present? %>
         <div class="col-xs-12 pull-left">
           <% @place.photos.each do |photo| %>
-          <%= image_tag photo.picture, class: 'img-responsive' %>
-          <br />
-         " <%= photo.caption %> "
-          <br />
+          <%= image_tag photo.picture %>
           <% end %>
          </div>
         <% end %>

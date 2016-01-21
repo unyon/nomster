@@ -10,13 +10,13 @@ RATINGS = {
 	'four stars' => '4_stars',
 	'five stars' => '5_stars',
 }
-def humanized_rating
+ def humanized_rating
 	RATINGS.invert[self.rating]
-end
+ end
 
-  def send_comment_email
+ def send_comment_email
       NotificationMailer.comment_added(self).deliver
-  end
+ end
 
 
 end
